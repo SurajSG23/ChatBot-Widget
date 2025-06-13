@@ -13,6 +13,7 @@ $border-light: #e5e7eb;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .chatbot-container-main {
@@ -129,11 +130,6 @@ $border-light: #e5e7eb;
     z-index: 1000;
     overflow: hidden;
 
-    @media (max-width: 768px) {
-      width: 300px;
-      height: 400px;
-      right: 1rem;
-    }
   }
 
   .chatbot-header {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./App.scss";
+import "./ChatBot.scss";
 import { BsRobot } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegUser } from "react-icons/fa";
@@ -252,9 +252,9 @@ const Chatbot: React.FC = () => {
                 }
               >
                 {listening ? (
-                  <FaPause style={{ fontSize: "16px" }} />
+                  <FaPause style={{ fontSize: "16px", color: "white" }} />
                 ) : (
-                  <FaMicrophone style={{ fontSize: "16px" }} />
+                  <FaMicrophone style={{ fontSize: "16px", color: "white" }} />
                 )}
               </div>
             )}
