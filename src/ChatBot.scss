@@ -9,7 +9,7 @@ $black: #000000;
 $shadow: rgba(0, 0, 0, 0.15);
 $border-light: #e5e7eb;
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -118,8 +118,6 @@ $border-light: #e5e7eb;
 
   .chatbot-container {
     position: fixed;
-    bottom: 3.6rem;
-    right: 3.6rem;
     width: 350px;
     height: 450px;
     background: $white;
@@ -129,7 +127,6 @@ $border-light: #e5e7eb;
     flex-direction: column;
     z-index: 1000;
     overflow: hidden;
-
   }
 
   .chatbot-header {
@@ -169,6 +166,7 @@ $border-light: #e5e7eb;
       background-color: transparent;
       cursor: pointer;
       transition-duration: 0.3s;
+      border: none;
     }
     .bin-button .tooltiptext {
       visibility: hidden;
