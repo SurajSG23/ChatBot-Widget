@@ -26,10 +26,10 @@ const Chatbot: React.FC = () => {
   };
   const [model, setModel] = useState("qwen3-32b-genwai");
   const [project, setProject] = useState("Default");
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (transcript) {
-      console.log(transcript);
       setInputValue(transcript);
     }
   }, [transcript]);
@@ -48,7 +48,6 @@ const Chatbot: React.FC = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
       if (inputValue.trim()) {
         const updatedMessages = messages.map((msg) => ({
           ...msg,
@@ -91,7 +90,12 @@ const Chatbot: React.FC = () => {
     }
   };
 
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  window.addEventListener("message", (event) => {
+    if (event.data.type === "PARENT_URL") {
+      console.log("Parent URL:", event.data.url);
+      // Use the parent URL as needed
+    }
+  });
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
