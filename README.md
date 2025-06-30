@@ -51,7 +51,7 @@ openai                 # OpenAI API integration
 # ▶️3. API references
 ```bash
 API_KEY= "genw API Key"
-BASE_URL= "Deloitte root endpoint"
+BASE_URL= "root endpoint"
 ```
 
 # ▶️4. Build & Run Instructions
@@ -63,7 +63,7 @@ Follow the steps below to set up and run the project, which includes a React fro
 ### 1. Clone the Repository
 
 ```bash
-git clone https://IN-Cons-Asset-Innovation@dev.azure.com/IN-Cons-Asset-Innovation/Internships/_git/ChatbotPlatform
+git clone https://github.com/SurajSG23/ChatBot-POC.git
 cd ChatbotPlatform
 ```
 ### 2. Frontend Setup
