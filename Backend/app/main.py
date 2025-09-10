@@ -3,6 +3,7 @@ import json
 from fastapi import FastAPI, File, UploadFile, Form, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sentence_transformers import SentenceTransformer
+from typing import List
 
 # Import local modules
 from .extract_text import extract_text  
@@ -12,7 +13,7 @@ from .add_metadata import add_metadata
 from .embedd_chunks import embedd_chunks
 from .faiss_store import faiss_store
 from .fetch_data import fetch_data
-from .llm_call import get_chat_completion, get_chat_completion_without_context
+from .llm_call import get_chat_completion
 from .get_prompt import get_prompt
 from .validate_url import validate_url
 
@@ -21,7 +22,6 @@ app = FastAPI()
 # Initialize model
 model = SentenceTransformer('all-mpnet-base-v2')
 
-# CORS Configuration
 MAPPING_FILE = "source_url_map.json"
 
 try:
@@ -31,6 +31,7 @@ try:
 except:
     origins = ["*"]
 
+# CORS Configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -84,9 +85,6 @@ async def recieve_prompt(request: Request):
         prompt_str = data["inputValue"]
         model_str = data["model"]
         project = data["project"]
-        
-        if project == "AI Assistant":
-            return get_chat_completion_without_context(prompt_str, model_str)
         
         response = fetch_data(prompt_str, project, model)
         context_section = "\n".join([f"Context {i+1}: {chunk}" for i, chunk in enumerate(response)])

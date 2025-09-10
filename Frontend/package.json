@@ -20,6 +20,7 @@
     "react-router-dom": "^7.6.1",
     "react-speech-recognition": "^4.0.1",
     "react-toastify": "^11.0.5",
+    "sass": "^1.91.0",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
