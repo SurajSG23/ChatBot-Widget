@@ -63,12 +63,17 @@ async def upload_file(url: str = Form(...), source: str = Form(...), files: List
                 f.write(await file.read())
             
             text = extract_text(file_location)
+            print("text extracted")
             cleaned_text = clean_text(text.lower())
+            print("text cleaned")
             chunks = split_text(cleaned_text)
+            print("text chunked")
             chunks_with_metadata = add_metadata(chunks, source)
+            print("metadata added")
             embedded_chunks = embedd_chunks(chunks_with_metadata, model)
+            print("chunks embedded")
             faiss_store(embedded_chunks, chunks_with_metadata, source)
-            
+            print("chunks stored in FAISS")
             os.remove(file_location)
         
         if os.path.exists("uploaded_docs"):
@@ -83,7 +88,7 @@ async def recieve_prompt(request: Request):
     try:
         data = json.loads(await request.body())
         prompt_str = data["inputValue"]
-        model_str = data["model"]
+        model_str = "gemini-2.0-flash"
         project = data["project"]
         
         response = fetch_data(prompt_str, project, model)

@@ -113,7 +113,7 @@ const Chatbot: React.FC = () => {
   // Auto-scroll to latest message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [isOpen, messages]);
 
   // Reset chat to initial state
   const clearChat = () => {
