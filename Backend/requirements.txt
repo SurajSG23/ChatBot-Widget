@@ -10,3 +10,4 @@ PyMuPDF
 numpy
 openai
 dotenv
+google-generativeai

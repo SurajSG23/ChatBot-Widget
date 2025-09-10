@@ -1,4 +1,4 @@
-import faiss
+import faiss #type:ignore
 import pickle
 import os
 
